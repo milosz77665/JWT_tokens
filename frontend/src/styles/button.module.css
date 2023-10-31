@@ -1,0 +1,69 @@
+.button {
+  font-size: 1.8rem;
+  padding: 1rem 1.5rem;
+  font-family: inherit;
+  border-radius: 50px;
+  border: 1.5px solid var(--black);
+  cursor: pointer;
+  background-color: var(--white);
+  transition-property: background-color, color;
+  transition-duration: 0.25s;
+}
+
+.button:hover {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+/* Override styles */
+.button.saveButton,
+.button.cancelButton {
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.button.cancelButton:hover {
+  background-color: var(--dark-red);
+}
+
+.button.okButton {
+  margin-top: 2rem;
+  font-size: 1.7rem;
+  padding: 0.7rem 2rem;
+}
+
+.button.formButton {
+  margin-top: 3.5rem;
+}
+
+@media (max-width: 1000px) {
+  .button.okButton {
+    font-size: 1.5rem;
+  }
+
+  .button.saveButton,
+  .button.cancelButton {
+    font-size: 1.3rem;
+    padding: 0.7rem 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .button.okButton {
+    font-size: 1.2rem;
+  }
+
+  .button.error {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .button.registerButton {
+    font-size: 1.5rem;
+  }
+
+  .button.error {
+    font-size: 1.3rem;
+  }
+}

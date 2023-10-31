@@ -1,0 +1,12 @@
+.validationContainer {
+  background-color: var(--red);
+  border: 0.15rem solid var(--dark-red);
+  border-radius: 5px;
+  padding: 0.6rem 1rem;
+  width: 100%;
+}
+
+.validationText {
+  text-justify: center;
+  font-size: 1.8rem;
+}

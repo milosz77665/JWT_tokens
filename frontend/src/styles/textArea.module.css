@@ -1,0 +1,20 @@
+.textArea {
+  font-family: inherit;
+  resize: none;
+  padding: 0.6rem 1rem;
+  border-radius: 7px;
+  border: 0.15rem solid var(--grey);
+  background-color: var(--white);
+  outline: none;
+  color: var(--black);
+  height: 7rem;
+}
+
+.textArea:focus {
+  border: var(--secondary) solid 0.15rem;
+  box-shadow: 0px 0px 6px 0px var(--secondary);
+}
+
+.textArea:hover {
+  border: var(--secondary) solid 0.15rem;
+}
