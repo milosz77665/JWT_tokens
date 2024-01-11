@@ -9,8 +9,8 @@ app.use(cors({ origin: "http://localhost:3000" }));
 app.use(bodyParser.json());
 
 app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  console.log(email);
+  const { username, password } = req.body;
+  console.log(username);
   console.log(password);
 
   res.status(200).json({ success: true, message: "Login successful" });
