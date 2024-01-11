@@ -1,0 +1,38 @@
+.documentContainer {
+  height: 100%;
+  width: 100%;
+  padding: 2rem;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border: 4px solid var(--white);
+  transition-property: color, background-color;
+  transition-duration: 0.3s;
+  background-color: var(--primary);
+  color: var(--white);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.documentContainer:hover {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.documentTitle {
+  font-size: 2.5rem;
+  text-overflow: ellipsis;
+}
+
+.documentContent {
+  font-size: 1.8rem;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
