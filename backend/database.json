@@ -1,0 +1,12 @@
+{
+  "users": [
+    { "username": "user1", "password": "user1password", "role": "user1" },
+    { "username": "user2", "password": "user2password", "role": "user2" },
+    { "username": "admin", "password": "adminpassword", "role": "admin" }
+  ],
+  "documents": {
+    "user1": [{ "title": "Document1", "content": "this is for user1" }],
+    "user2": [{ "title": "Document2", "content": "this is for user2" }],
+    "admin": [{ "title": "Document3", "content": "this is for admin" }]
+  }
+}
