@@ -6,8 +6,11 @@ import Input from "../Input";
 import ValidationMessage from "../ValidationMessage";
 import { useRef, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner";
+import { useRouter } from "next/navigation";
+import { setCookie } from "cookies-next";
 
 export default function SignInForm({ setHasAccount }) {
+  const router = useRouter();
   const usernameRef = useRef();
   const passwordRef = useRef();
   const [authErrorMess, setAuthErrorMess] = useState("");
@@ -30,7 +33,15 @@ export default function SignInForm({ setHasAccount }) {
               headers: { "Content-Type": "application/json" },
             });
             const responseJson = await response.json();
-            console.log(responseJson);
+
+            if (response.ok) {
+              console.log(responseJson);
+              setCookie("jwt", responseJson.token, { path: "/", maxAge: 900, secure: true });
+              router.push("/");
+            } else {
+              setAuthErrorMess(responseJson.message);
+              setIsLoading(false);
+            }
           } catch (error) {
             setAuthErrorMess("Unknown error");
             setIsLoading(false);
