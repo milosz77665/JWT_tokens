@@ -35,8 +35,9 @@ export default function SignInForm({ setHasAccount }) {
             const responseJson = await response.json();
 
             if (response.ok) {
-              console.log(responseJson);
-              setCookie("jwt", responseJson.token, { path: "/", maxAge: 900, secure: true });
+              console.log(`Server response: ${JSON.stringify(responseJson)}`);
+              // Zapisanie tokenu w plikach cookie
+              setCookie("jwt", responseJson.token, { path: "/", maxAge: 3600, secure: true });
               router.push("/");
             } else {
               setAuthErrorMess(responseJson.message);
