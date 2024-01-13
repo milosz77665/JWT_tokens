@@ -14,10 +14,18 @@
   color: var(--white);
 }
 
-.logoutIcon {
+.authInfo {
+  font-size: 2rem;
+  color: var(--white);
   position: absolute;
   top: 4rem;
   right: 4rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5rem;
+}
+
+.logoutIcon {
   cursor: pointer;
   transition: stroke 0.2s;
 }
