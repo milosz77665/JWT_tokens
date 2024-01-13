@@ -31,7 +31,7 @@ app.post("/login", (req, res) => {
     });
     console.debug("Token: ", token);
 
-    res.status(200).json({ token, userId: user.id, username: user.username });
+    res.status(200).json({ token, userId: user.id });
   } else {
     res.status(401).json({ message: "Incorrect data" });
   }
