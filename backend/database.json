@@ -1,12 +1,12 @@
 {
   "users": [
-    { "id": 1, "username": "user1", "password": "user1password", "documents": [1] },
-    { "id": 2, "username": "user2", "password": "user2password", "documents": [2] },
-    { "id": 3, "username": "admin", "password": "adminpassword", "documents": [1, 2, 3] }
+    { "id": 1, "username": "user1", "password": "user1password", "role": "user" },
+    { "id": 2, "username": "user2", "password": "user2password", "role": "user" },
+    { "id": 3, "username": "admin", "password": "adminpassword", "role": "admin" }
   ],
   "documents": {
-    "1": [{ "title": "Document1", "content": "This is for user1" }],
-    "2": [{ "title": "Document2", "content": "This is for user2" }],
-    "3": [{ "title": "Document3", "content": "This is for admin" }]
+    "1": [{ "id": 1, "title": "Document1", "content": "this is for user1" }],
+    "2": [{ "id": 2, "title": "Document2", "content": "this is for user2" }],
+    "3": [{ "id": 3, "title": "Document3", "content": "this is for admin" }]
   }
 }
