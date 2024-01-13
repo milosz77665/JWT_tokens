@@ -1,17 +1,48 @@
+"use client";
 import styles from "@/styles/home/documentGrid.module.css";
+import loadingSpinnerStyles from "@/styles/loadingSpinner.module.css";
 import Document from "./Document";
+import { useEffect, useState } from "react";
+import { getCookie } from "cookies-next";
+import LoadingSpinner from "../LoadingSpinner";
 
 export default function DocumentGrid() {
+  const [documents, setDocuments] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchDocuments() {
+      const token = getCookie("jwt");
+      try {
+        // Wysyłanie żądania dotyczącego dokumentów z tokenem w nagłówku
+        const response = await fetch("http://localhost:5000/documents", {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        const data = await response.json();
+        const documentsData = data.documents;
+        console.log(`Documents for user: ${data.documents.map((document) => document.title)}`);
+        setDocuments(documentsData);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(`Error fetching data: ${error}`);
+      }
+    }
+
+    fetchDocuments();
+  }, []);
+
   return (
     <div className={styles.documentGrid}>
-      <Document
-        title={"title"}
-        content={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-        }
-      />
-      <Document title={"title"} content={"content"} />
-      <Document title={"title"} content={"content"} />
+      {isLoading ? (
+        <LoadingSpinner className={loadingSpinnerStyles.documentGrid} />
+      ) : (
+        documents.map((document) => {
+          return <Document key={document.id} title={document.title} content={document.content} />;
+        })
+      )}
     </div>
   );
 }

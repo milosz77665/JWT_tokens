@@ -1,5 +1,4 @@
 "use client";
-
 import styles from "@/styles/home/homePage.module.css";
 import DocumentGrid from "@/components/home/DocumentGrid";
 import LogoutIcon from "@/assets/icons/LogoutIcon";
