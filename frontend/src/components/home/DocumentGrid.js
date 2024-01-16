@@ -7,6 +7,7 @@ import { getCookie } from "cookies-next";
 import LoadingSpinner from "../LoadingSpinner";
 
 export default function DocumentGrid() {
+  const username = localStorage.getItem("username") || "user";
   const [documents, setDocuments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -23,7 +24,7 @@ export default function DocumentGrid() {
         });
         const data = await response.json();
         const documentsData = data.documents;
-        console.log(`Documents for user: ${data.documents.map((document) => document.title)}`);
+        console.log(`Documents for ${username}: ${data.documents.map((document) => document.title)}`);
         setDocuments(documentsData);
         setIsLoading(false);
       } catch (error) {
