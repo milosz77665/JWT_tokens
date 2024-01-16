@@ -4,11 +4,9 @@ import DocumentGrid from "@/components/home/DocumentGrid";
 import LogoutIcon from "@/assets/icons/LogoutIcon";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from "next/navigation";
-import { useContext } from "react";
-import { UsernameContext } from "@/context/username-context";
 
 export default function HomePage() {
-  const { username } = useContext(UsernameContext);
+  const username = localStorage.getItem("username") || null;
   const router = useRouter();
   function handleLogout() {
     deleteCookie("jwt");

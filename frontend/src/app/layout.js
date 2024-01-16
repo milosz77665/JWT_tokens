@@ -1,4 +1,3 @@
-import { UsernameContextProvider } from "@/context/username-context";
 import "@/styles/globals.css";
 import { Comfortaa } from "next/font/google";
 import NextTopLoader from "nextjs-toploader";
@@ -18,7 +17,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={comfortaa.className}>
         <NextTopLoader showSpinner={false} color="var(--secondary)" />
-        <UsernameContextProvider>{children}</UsernameContextProvider>
+        {children}
       </body>
     </html>
   );

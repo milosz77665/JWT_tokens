@@ -8,11 +8,9 @@ import { useContext, useRef, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner";
 import { useRouter } from "next/navigation";
 import { setCookie } from "cookies-next";
-import { UsernameContext } from "@/context/username-context";
 
 export default function SignInForm({ setHasAccount }) {
   const router = useRouter();
-  const { setUsername } = useContext(UsernameContext);
   const usernameRef = useRef();
   const passwordRef = useRef();
   const [authErrorMess, setAuthErrorMess] = useState("");
@@ -37,7 +35,7 @@ export default function SignInForm({ setHasAccount }) {
             const responseJson = await response.json();
 
             if (response.ok) {
-              setUsername(username);
+              localStorage.setItem("username", username);
               console.log(`Server response: ${JSON.stringify(responseJson)}`);
               // Zapisanie tokenu w plikach cookie
               setCookie("jwt", responseJson.token, { path: "/", maxAge: 3600, secure: true });
