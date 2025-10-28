@@ -7,9 +7,13 @@ import { getCookie } from "cookies-next";
 import LoadingSpinner from "../LoadingSpinner";
 
 export default function DocumentGrid() {
-  const username = localStorage.getItem("username") || "user";
+  const [username, setUsername] = useState(null);
   const [documents, setDocuments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    setUsername(localStorage.getItem("username"));
+  }, []);
 
   useEffect(() => {
     async function fetchDocuments() {
